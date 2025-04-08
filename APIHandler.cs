@@ -57,7 +57,11 @@ public partial class ApiHandler : Control {
     }
     
     public string GetOverlayStreamAddress() {
-        return "ws://" + new Uri(_cfg.BaseUrl).GetComponents(UriComponents.HostAndPort,UriFormat.UriEscaped) + "/overlay/stream";
+        return "ws://" + new Uri(_cfg.BaseUrl).GetComponents(UriComponents.HostAndPort,UriFormat.UriEscaped) + "/stream/overlay";
+    }
+    
+    public string GetEventStreamAddress() {
+        return "ws://" + new Uri(_cfg.BaseUrl).GetComponents(UriComponents.HostAndPort,UriFormat.UriEscaped) + "/stream/event";
     }
     
     public string GetTimeStreamAddress() {
@@ -100,7 +104,6 @@ public partial class ApiHandler : Control {
     {
         public required string BaseUrl { get; init; }
     }
-
 }
 
 public readonly struct CurrentMatch(Team left, Team right) {
